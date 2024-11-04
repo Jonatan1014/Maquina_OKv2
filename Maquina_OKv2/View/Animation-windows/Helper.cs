@@ -35,6 +35,35 @@ namespace Maquina_OKv2.View.Animation_windows
             window.BeginAnimation(Window.OpacityProperty, fadeOut);
         }
 
-        
+        public static void ExpandIn(Window window)
+        {
+            ScaleTransform scale = new ScaleTransform(0, 0);
+            window.RenderTransform = scale;
+            window.RenderTransformOrigin = new Point(0.5, 0.5);
+            window.Opacity = 0;
+            window.Show();
+
+            DoubleAnimation scaleAnimation = new DoubleAnimation(1, TimeSpan.FromSeconds(0.5));
+            DoubleAnimation opacityAnimation = new DoubleAnimation(1, TimeSpan.FromSeconds(0.5));
+
+            scale.BeginAnimation(ScaleTransform.ScaleXProperty, scaleAnimation);
+            scale.BeginAnimation(ScaleTransform.ScaleYProperty, scaleAnimation);
+            window.BeginAnimation(Window.OpacityProperty, opacityAnimation);
+        }
+
+        public static void ZoomOutAndClose(Window window)
+        {
+            DoubleAnimation widthAnimation = new DoubleAnimation(0, TimeSpan.FromSeconds(0.5));
+            DoubleAnimation heightAnimation = new DoubleAnimation(0, TimeSpan.FromSeconds(0.5));
+            DoubleAnimation opacityAnimation = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
+
+            widthAnimation.Completed += (s, e) => window.Close();
+
+            window.BeginAnimation(Window.WidthProperty, widthAnimation);
+            window.BeginAnimation(Window.HeightProperty, heightAnimation);
+            window.BeginAnimation(Window.OpacityProperty, opacityAnimation);
+        }
+
+
     }
 }

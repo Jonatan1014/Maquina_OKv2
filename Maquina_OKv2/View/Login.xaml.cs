@@ -40,7 +40,8 @@ namespace Maquina_OKv2.View
         // Evento para cerrar la ventana
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Helper.ZoomOutAndClose(this);
+            //this.Close();
         }
 
         private void btn_user_create_Click(object sender, RoutedEventArgs e)
