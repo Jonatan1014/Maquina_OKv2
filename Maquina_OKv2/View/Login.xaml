@@ -113,7 +113,7 @@
                             BorderBrush="#5B8DEE" BorderThickness="1" 
                             Cursor="Hand"
                             FontFamily="Montserrat"
-                            Width="375">
+                            Width="375" Click="Sing_in_Click">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="#5B8DEE"/>

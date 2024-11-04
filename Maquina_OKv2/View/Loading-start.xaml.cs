@@ -18,7 +18,7 @@ namespace Maquina_OKv2.View
         {
             Helper.FadeIn(this);
             // Espera 3 segundos antes de pasar a la siguiente ventana
-            await Task.Delay(3000);
+            //await Task.Delay(3000);
 
             // Crear y mostrar la nueva ventana
             Login login = new Login();

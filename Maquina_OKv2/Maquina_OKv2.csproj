@@ -49,6 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>check-list.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -79,6 +82,18 @@
       <DependentUpon>Account.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Animation-windows\Helper.cs" />
+    <Compile Include="View\ControUserView\Account2.xaml.cs">
+      <DependentUpon>Account2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ControUserView\History_test.xaml.cs">
+      <DependentUpon>History_test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ControUserView\Test-List.xaml.cs">
+      <DependentUpon>Test-List.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ControUserView\Welcome_udi.xaml.cs">
+      <DependentUpon>Welcome_udi.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Loading-start.xaml.cs">
       <DependentUpon>Loading-start.xaml</DependentUpon>
     </Compile>
@@ -136,6 +151,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="View\Image\lupa.png" />
+    <Resource Include="View\Image\logo-letter.png" />
+    <Resource Include="check-list.ico" />
     <Content Include="Model\maquina_bd.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -143,6 +161,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>maquina_bd.mdf</DependentUpon>
     </Content>
+    <Resource Include="View\Image\check-list.png" />
     <Resource Include="View\Image\perfil-enginner.png" />
     <Resource Include="View\Image\logo_udi.png" />
   </ItemGroup>
@@ -160,6 +179,22 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="View\Account.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ControUserView\Account2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ControUserView\History_test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ControUserView\Test-List.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ControUserView\Welcome_udi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

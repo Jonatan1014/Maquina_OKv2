@@ -51,5 +51,12 @@ namespace Maquina_OKv2.View
             Helper.FadeOutAndClose(this);
             //this.Close();
         }
+
+        private void Sing_in_Click(object sender, RoutedEventArgs e)
+        {
+            Main mai = new Main();
+            mai.Show();
+            Helper.FadeOutAndClose(this);
+        }
     }
 }

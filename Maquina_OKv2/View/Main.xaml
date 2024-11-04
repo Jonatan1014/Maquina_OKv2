@@ -1,12 +1,49 @@
 ﻿<Window x:Class="Maquina_OKv2.View.Main"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Maquina_OKv2.View"
-        mc:Ignorable="d"
-        Title="Main" Height="450" Width="800">
-    <Grid>
-        
+        Title="Registro - Maquina OK" 
+        Width="800" Height="450"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" 
+        ResizeMode="NoResize" 
+        Background="#1E1E2E" 
+        SizeToContent="WidthAndHeight">
+    <Grid x:Name="a">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="b" Height="30" VerticalAlignment="Top" >
+            <Border BorderBrush="Black" BorderThickness="1" MouseLeftButtonDown="Window_MouseDown" >
+            </Border>
+            <Image Source="/View/Image/logo_udi.png" Height="25" />
+            <Image Source="/View/Image/check-list.png" HorizontalAlignment="Left" Height="25" />
+            <Button x:Name="main_exit" Content="X" HorizontalAlignment="Left" Margin="768,0,0,0" Background="Red" FontFamily="Montserrat Black" Width="30" BorderThickness="0,0,0,0" Height="25" VerticalAlignment="Center" Click="main_exit_Click"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Button x:Name="main_home" Content="Inicio" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" FontFamily="Montserrat Medium" BorderThickness="0,0,0,1" Background="{x:Null}" BorderBrush="White" Foreground="White" Click="main_home_Click"/>
+            <Button x:Name="main_test" Content="Pruebas" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center" Background="{x:Null}" BorderThickness="0,0,0,1" BorderBrush="White" Foreground="White" FontFamily="Montserrat Medium" Click="main_test_Click"/>
+            <Button x:Name="main_historytest" Content="Historial de pruebas" HorizontalAlignment="Left" Margin="152,0,0,0" VerticalAlignment="Center" Background="{x:Null}" BorderThickness="0,0,0,1" FontFamily="Montserrat Medium" Foreground="White" BorderBrush="White" Click="main_historytest_Click"/>
+            <Button x:Name="main_account" Content="Mi Cuenta" HorizontalAlignment="Left" Margin="306,0,0,0" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="White" Foreground="White" FontFamily="Montserrat Medium" BorderThickness="0,0,0,1" Click="main_account_Click"/>
+            <Label Content="|" HorizontalAlignment="Left" Margin="45,0,0,0" VerticalAlignment="Center" Foreground="White" FontFamily="Montserrat ExtraLight" FontSize="36" Height="50"/>
+            <Label Content="|" HorizontalAlignment="Left" Margin="127,0,0,0" VerticalAlignment="Center" Foreground="White" FontFamily="Montserrat ExtraLight" FontSize="36" Height="50"/>
+            <Label Content="|" HorizontalAlignment="Left" Margin="281,0,0,0" VerticalAlignment="Center" Foreground="White" FontFamily="Montserrat ExtraLight" FontSize="36" Height="50"/>
+
+        </Grid>
+        <Grid Grid.Row="2">
+
+            <Frame x:Name="Contenido"
+                   Height="370"
+                   Width="800"
+                   Background="Transparent"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center" 
+                   NavigationUIVisibility="Hidden" />
+
+        </Grid>
+
+
+
     </Grid>
 </Window>
