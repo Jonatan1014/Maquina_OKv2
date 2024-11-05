@@ -91,6 +91,9 @@
     <Compile Include="View\ControUserView\Test-List.xaml.cs">
       <DependentUpon>Test-List.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ControUserView\View_Image_Test.xaml.cs">
+      <DependentUpon>View_Image_Test.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ControUserView\Welcome_udi.xaml.cs">
       <DependentUpon>Welcome_udi.xaml</DependentUpon>
     </Compile>
@@ -191,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ControUserView\Test-List.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ControUserView\View_Image_Test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

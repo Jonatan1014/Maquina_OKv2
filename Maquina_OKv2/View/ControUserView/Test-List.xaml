@@ -7,16 +7,40 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="#2A2A3D">
-        <Label Content="Norma tecnica Colombiana NTC:" HorizontalAlignment="Left" Margin="28,30,0,0" VerticalAlignment="Top" FontFamily="Montserrat Medium" Foreground="White"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="28,80,551,10"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="450" />
+        </Grid.ColumnDefinitions>
+        <Label Content="Norma Técnica Colombiana NTC:" HorizontalAlignment="Left" Margin="28,30,0,0" VerticalAlignment="Top" FontFamily="Montserrat Medium" Foreground="White"/>
 
-        <!-- Email Input con color de fondo temporal y sin margen excesivo -->
-        <TextBox x:Name="search_ntc" HorizontalAlignment="Left" VerticalAlignment="Top"
-                 Width="200" Height="25"
-                 Background="#505060" 
-            BorderThickness="0,0,0,1" FontSize="13" 
-                 BorderBrush="White" Foreground="White" Text="asas" Margin="536,32,0,0" TextChanged="search_ntc_TextChanged"/>
+        <!-- ListBox con ejemplos de NTC -->
+        <ListBox x:Name="ntcListBox" Margin="28,60,10,10" Foreground="White" Background="#3E3E52"
+                 SelectionChanged="ntcListBox_SelectionChanged">
+            <ListBoxItem Content="NTC 9001: Gestión de Calidad"/>
+            <ListBoxItem Content="NTC 1801: Seguridad en el Trabajo"/>
+            <ListBoxItem Content="NTC 1325: Protección Ambiental"/>
+            <ListBoxItem Content="NTC 2008: Requisitos de Seguridad"/>
+            <ListBoxItem Content="NTC 4101: Seguridad Eléctrica"/>
+            <ListBoxItem Content="NTC 17025: Requisitos de Laboratorio"/>
+        </ListBox>
 
-        <Image HorizontalAlignment="Left" Height="31" Margin="736,30,0,0" VerticalAlignment="Top" Width="31" Source="/View/Image/lupa.png"/>
+
+        <!-- Campo de búsqueda -->
+        <Grid Grid.Column="1" >
+
+            <TextBox x:Name="search_ntc" HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Width="200" Height="20"
+                 Background="#3E3E52" 
+                 BorderThickness="0,0,0,0" FontSize="13" 
+                 BorderBrush="White" Foreground="White" Text="Buscar..." Margin="177,26,0,0" TextChanged="search_ntc_TextChanged" TextAlignment="Center"/>
+
+            <!-- Icono de lupa al lado del campo de búsqueda -->
+            <Image HorizontalAlignment="Left" Height="26" Margin="375,24,0,0" VerticalAlignment="Top" Width="27" Source="/View/Image/lupa.png"/>
+        </Grid>
+
+
+        <!-- Contenedor para el UserControl de detalles de la norma seleccionada -->
+        <ContentControl x:Name="detailsContentControl" Grid.Column="1" Margin="10,80,158,81" Background="#3E3E52"/>
+
     </Grid>
 </UserControl>

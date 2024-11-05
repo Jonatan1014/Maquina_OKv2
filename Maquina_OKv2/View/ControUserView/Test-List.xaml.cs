@@ -1,23 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Maquina_OKv2.View.ControUserView
 {
-    /// <summary>
-    /// Lógica de interacción para Test_List.xaml
-    /// </summary>
     public partial class Test_List : UserControl
     {
         public Test_List()
@@ -27,7 +12,26 @@ namespace Maquina_OKv2.View.ControUserView
 
         private void search_ntc_TextChanged(object sender, TextChangedEventArgs e)
         {
+            // Lógica para filtrar las normas en el ListBox
+        }
 
+        private void ntcListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Verificar si hay un elemento seleccionado
+            if (ntcListBox.SelectedItem != null)
+            {
+                // Obtener el texto de la norma seleccionada
+                var selectedNorm = (ntcListBox.SelectedItem as ListBoxItem).Content.ToString();
+
+                // Crear una instancia del UserControl de detalles
+                var viewImageTest = new View_Image_Test();
+
+                // Configurar el texto de la norma seleccionada en el nuevo UserControl
+                viewImageTest.SetNormText(selectedNorm);
+
+                // Mostrar el UserControl en el ContentControl
+                detailsContentControl.Content = viewImageTest;
+            }
         }
     }
 }
