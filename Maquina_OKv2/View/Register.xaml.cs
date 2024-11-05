@@ -42,7 +42,7 @@ namespace Maquina_OKv2.View
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Helper.ZoomOutAndClose(this);
-            this.Close();
+            //this.Close();
         }
 
         private void btn_register_Click(object sender, RoutedEventArgs e)

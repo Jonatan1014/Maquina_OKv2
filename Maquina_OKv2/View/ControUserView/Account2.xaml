@@ -6,7 +6,19 @@
              xmlns:local="clr-namespace:Maquina_OKv2.View.ControUserView"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="#2A2A3D" >
+        <Label Content="Datos Personales" HorizontalAlignment="Center" Margin="0,66,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Montserrat Medium" FontSize="20"/>
+        <Label Content="Nombre " HorizontalAlignment="Left" Margin="259,139,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Montserrat Medium" FontSize="15"/>
+        <Label Content="Apellido " HorizontalAlignment="Left" Margin="259,172,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Montserrat Medium" FontSize="15"/>
+        <Label Content="Correo " HorizontalAlignment="Left" Margin="259,205,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Montserrat Medium" FontSize="15"/>
+        <Label Content="Contraseña " HorizontalAlignment="Left" Margin="259,238,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Montserrat Medium" FontSize="15"/>
+        <TextBox x:Name="account_name" HorizontalAlignment="Left" Margin="400,139,0,0" Text="TextBox" VerticalAlignment="Top" Width="237" Background="#FF3E3E52" IsEnabled="False" BorderThickness="0,0,0,1" BorderBrush="White" Height="28" FontFamily="Montserrat Medium" Foreground="White" FontSize="15" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="account_firstname" HorizontalAlignment="Left" Margin="400,172,0,0" Text="TextBox" VerticalAlignment="Top" Width="237" Background="#FF3E3E52" IsEnabled="False" BorderThickness="0,0,0,1" BorderBrush="White" Height="28" FontFamily="Montserrat Medium" Foreground="White" FontSize="15" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="account_email" HorizontalAlignment="Left" Margin="400,205,0,0" Text="TextBox" VerticalAlignment="Top" Width="237" Background="#FF3E3E52" IsEnabled="False" BorderThickness="0,0,0,1" BorderBrush="White" Height="28" FontFamily="Montserrat Medium" Foreground="White" FontSize="15" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="account_password" HorizontalAlignment="Left" Margin="400,238,0,0" Text="TextBox" VerticalAlignment="Top" Width="237" Background="#FF3E3E52" IsEnabled="False" BorderThickness="0,0,0,1" BorderBrush="White" Height="28" FontFamily="Montserrat Medium" Foreground="White" FontSize="15" VerticalContentAlignment="Center"/>
+        <Button x:Name="accunt_exitsesion" Content="Cerrar Sesion" HorizontalAlignment="Left" Margin="30,295,0,0" VerticalAlignment="Top" FontFamily="Montserrat Medium" BorderThickness="0,0,0,1" Background="{x:Null}" BorderBrush="White" Foreground="White" Click="account_exitsesion_Click" FontSize="15"/>
+
+
+
     </Grid>
 </UserControl>
