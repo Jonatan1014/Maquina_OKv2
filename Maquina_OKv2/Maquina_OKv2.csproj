@@ -77,7 +77,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controller\CardItem.cs" />
     <Compile Include="Controller\Cerebro.cs" />
+    <Compile Include="Controller\RelayCommand.cs" />
     <Compile Include="View\Account.xaml.cs">
       <DependentUpon>Account.xaml</DependentUpon>
     </Compile>
@@ -90,6 +92,12 @@
     </Compile>
     <Compile Include="View\ControUserView\Test-List.xaml.cs">
       <DependentUpon>Test-List.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ControUserView\Test_ready.xaml.cs">
+      <DependentUpon>Test_ready.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ControUserView\View_Image_History.xaml.cs">
+      <DependentUpon>View_Image_History.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ControUserView\View_Image_Test.xaml.cs">
       <DependentUpon>View_Image_Test.xaml</DependentUpon>
@@ -194,6 +202,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ControUserView\Test-List.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ControUserView\Test_ready.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ControUserView\View_Image_History.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
