@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="#2A2A3D" >
-        <Image HorizontalAlignment="Center" Height="106" Margin="0,177,0,0" VerticalAlignment="Top" Width="508" Source="/View/Image/logo-letter.png"/>
+        <Image HorizontalAlignment="Center" Height="106" VerticalAlignment="Center" Width="346" Source="/View/Image/logo-talleres-unidos.png"/>
     </Grid>
 </UserControl>

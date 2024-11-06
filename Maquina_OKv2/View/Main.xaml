@@ -14,11 +14,11 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="b" Height="30" VerticalAlignment="Top" >
-            <Border BorderBrush="Black" BorderThickness="1" MouseLeftButtonDown="Window_MouseDown" >
+        <Grid x:Name="b" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="Window_MouseDown" >
+            <Border BorderBrush="Black" BorderThickness="1"  >
             </Border>
             <Image Source="/View/Image/logo_udi.png" Height="25" />
-            <Image Source="/View/Image/check-list.png" HorizontalAlignment="Left" Height="25" />
+            <Image Source="/View/Image/logo-talleres-unidos.png" HorizontalAlignment="Left" Height="25" />
             <Button x:Name="main_exit" Content="X" HorizontalAlignment="Left" Margin="768,0,0,0" Background="Red" FontFamily="Montserrat Black" Width="30" BorderThickness="0,0,0,0" Height="25" VerticalAlignment="Center" Click="main_exit_Click"/>
         </Grid>
         <Grid Grid.Row="1">

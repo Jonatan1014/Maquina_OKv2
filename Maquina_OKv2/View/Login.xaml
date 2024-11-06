@@ -184,7 +184,7 @@
             </Border>
 
             <!-- Footer Logo -->
-            <Image Source="/View/Image/logo_udi.png"
+            <Image Source="/View/Image/logo-talleres-unidos.png"
                    Width="80" Height="32" 
                    HorizontalAlignment="Right" 
                    VerticalAlignment="Top" 

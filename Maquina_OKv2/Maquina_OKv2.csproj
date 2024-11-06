@@ -160,8 +160,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Folder Include="View\Image\Image-Test-BD\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Image\logo-talleres-unidos.png" />
     <Resource Include="View\Image\lupa.png" />
     <Resource Include="View\Image\logo-letter.png" />
     <Resource Include="check-list.ico" />
