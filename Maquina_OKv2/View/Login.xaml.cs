@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Maquina_OKv2.View;
 using System.Windows.Media.Animation;
 using Maquina_OKv2.View.Animation_windows;
+using Maquina_OKv2.Controller;
 
 namespace Maquina_OKv2.View
 {
@@ -54,9 +55,36 @@ namespace Maquina_OKv2.View
 
         private void Sing_in_Click(object sender, RoutedEventArgs e)
         {
-            Main mai = new Main();
-            mai.Show();
-            Helper.FadeOutAndClose(this);
+            Cerebro cerebro = new Cerebro();
+
+            if (login_email.Text == "" && login_passw.Password == "")
+            {
+                MessageBox.Show("Campos Vacios");
+            }
+            else if (login_email.Text == "")
+            {
+                MessageBox.Show("Ingrese Usuario");
+            }
+            else if (login_passw.Password == "")
+            {
+                MessageBox.Show("Ingrese Contraseña");
+            }
+            else
+            {
+
+                if (cerebro.verificarUsuario(login_email.Text, login_passw.Password))
+                {
+
+                    Main mai = new Main();
+                    mai.Show();
+                    Helper.FadeOutAndClose(this);
+                }
+                else {
+                    MessageBox.Show("Datos y/o usuario no registrado");
+                }
+            }
+
+
         }
     }
 }
