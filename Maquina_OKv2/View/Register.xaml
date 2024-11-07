@@ -90,7 +90,7 @@
                            Foreground="White" Height="25" VerticalContentAlignment="Bottom"/>
 
                     <!-- Nombre Input -->
-                    <TextBox Margin="0,10" Height="50" Width="375"
+                    <TextBox x:Name="register_lastname" Margin="0,10" Height="50" Width="375"
                              Background="#3E3E52"
                              BorderThickness="1" FontSize="14"/>
 
@@ -99,7 +99,7 @@
                            Foreground="White" Height="25" VerticalContentAlignment="Bottom"/>
 
                     <!-- Apellido Input -->
-                    <TextBox Margin="0,10" Height="50" Width="375"
+                    <TextBox x:Name="register_firstname" Margin="0,10" Height="50" Width="375"
                              Background="#3E3E52"
                              BorderThickness="1" FontSize="14"/>
 
@@ -108,7 +108,7 @@
                            Foreground="White" Height="25" VerticalContentAlignment="Bottom"/>
 
                     <!-- Correo Electrónico Input -->
-                    <TextBox Margin="0,10" Height="50" Width="375"
+                    <TextBox x:Name="register_email" Margin="0,10" Height="50" Width="375"
                              Background="#3E3E52"
                              BorderThickness="1" FontSize="14"/>
 
@@ -117,7 +117,7 @@
                            Foreground="White" Height="25" VerticalContentAlignment="Bottom"/>
 
                     <!-- Contraseña Input -->
-                    <PasswordBox Margin="0,10" Height="50" Width="375"
+                    <PasswordBox x:Name="register_passw" Margin="0,10" Height="50" Width="375"
                                  Background="#3E3E52"
                                  BorderThickness="1" FontSize="14"/>
 

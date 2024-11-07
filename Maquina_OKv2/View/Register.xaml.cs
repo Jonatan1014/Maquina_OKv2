@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Maquina_OKv2.Controller;
 using Maquina_OKv2.View;
 using Maquina_OKv2.View.Animation_windows;
 
@@ -21,6 +22,7 @@ namespace Maquina_OKv2.View
     /// </summary>
     public partial class Register : Window
     {
+        Login login = new Login();
         public Register()
         {
             InitializeComponent();
@@ -48,12 +50,39 @@ namespace Maquina_OKv2.View
         private void btn_register_Click(object sender, RoutedEventArgs e)
         {
 
+            if (register_lastname.Text == "" 
+                && register_firstname.Text == ""
+                && register_email.Text == "" 
+                && register_passw.Password == "")
+            {
+                MessageBox.Show("Campos Vacios o incompletos");
+            }
+            else
+            {
+                string state, rol;
+                state = "Activo";
+                rol = "User";
+                Cerebro cerebro = new Cerebro();
+                if (cerebro.registrarUsuario(register_lastname.Text, 
+                    register_firstname.Text, state, rol, register_email.Text, 
+                    register_passw.Password))
+                {
+                    MessageBox.Show("Regitro Exitoso");
+                    login.Show();
+                    Helper.FadeOutAndClose(this);
+                }
+                else
+                {
+                    MessageBox.Show("El usuario "+register_email.Text+" ya esta registrado");
+                }
+            }
+
 
         }
 
         private void btn_Return_Click(object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
+            
             login.Show();
             Helper.FadeOutAndClose(this);
             //this.Close();

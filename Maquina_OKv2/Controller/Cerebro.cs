@@ -18,6 +18,17 @@ namespace Maquina_OKv2.Controller
 
         }
 
+        public bool registrarUsuario(string lastName, string firstName, string status, string rol, string email, string passw) {
+
+            // Ejecuta el procedimiento almacenado y obtiene el resultado (0 o 1)
+            int result = (int)User.RegistrarUsuario(lastName, firstName, status, rol, email, passw);
+
+            return result == 1;
+
+        }
+
+
+
 
     }
 }
