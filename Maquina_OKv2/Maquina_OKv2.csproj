@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>check-list.ico</ApplicationIcon>
+    <ApplicationIcon>ico-talleres-unidos.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -192,7 +192,7 @@
     <Resource Include="View\Image\logo-talleres-unidos.png" />
     <Resource Include="View\Image\lupa.png" />
     <Resource Include="View\Image\logo-letter.png" />
-    <Resource Include="check-list.ico" />
+    <Resource Include="ico-talleres-unidos.ico" />
     <Content Include="Model\maquina_bd.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

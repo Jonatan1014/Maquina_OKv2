@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.SqlClient;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
@@ -7,31 +11,73 @@ namespace Maquina_OKv2.View.ControUserView
 {
     public partial class History_test : UserControl
     {
+        public ObservableCollection<TestHistory> TestHistories { get; set; }
         public ICommand NavigateCommand { get; private set; }
 
         public History_test()
         {
             InitializeComponent();
+            TestHistories = new ObservableCollection<TestHistory>();
+            DataContext = this;
 
             // Inicializar el comando de navegación
             NavigateCommand = new RelayCommand<int>(NavigateToDetails);
 
-            // Cargar datos de ejemplo
-            LoadData();
+            // Cargar el historial de pruebas desde la base de datos
+            LoadTestHistoryFromDatabase();
         }
 
-        private void LoadData()
+        private void LoadTestHistoryFromDatabase()
         {
-            // Ejemplo de datos. Aquí puedes cargar desde la base de datos
-            List<CardItem> items = new List<CardItem>
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Model\\maquina_bd.mdf;Integrated Security=True";
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                new CardItem { Id = 1, ImagePath = "/Images/sample1.png", Title = "Item 1", Description = "Descripción del Item 1" },
-                new CardItem { Id = 2, ImagePath = "/Images/sample2.png", Title = "Item 2", Description = "Descripción del Item 2" },
-                new CardItem { Id = 3, ImagePath = "/Images/sample3.png", Title = "Item 3", Description = "Descripción del Item 3" }
-            };
+                string query = "SELECT IdPrueba, Estado, FechaPrueba, ImagenPrueba FROM Pruebas";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32(0);
+                        string state = reader.GetString(1);
+                        string date = reader.GetDateTime(2).ToShortDateString();
+                        byte[] imageBytes = reader["ImagenPrueba"] as byte[];
+
+                        // Convertir la imagen (byte[]) en una ruta de imagen o un BitmapImage para mostrar
+                        string imagePath = ConvertToImageSource(imageBytes);
+
+                        TestHistories.Add(new TestHistory
+                        {
+                            Id = id,
+                            Title = $"Prueba ID: {id}",
+                            Description = $"Estado: {state} - Fecha: {date}",
+                            ImagePath = imagePath
+                        });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar el historial de pruebas: {ex.Message}");
+                }
+            }
 
             // Asignar los datos al ItemsControl
-            cardItemsControl.ItemsSource = items;
+            cardItemsControl.ItemsSource = TestHistories;
+        }
+
+        // Convertir byte array a ruta de imagen
+        private string ConvertToImageSource(byte[] imageBytes)
+        {
+            if (imageBytes == null)
+                return null;
+
+            // Convertir a ruta de imagen temporal
+            var imagePath = System.IO.Path.GetTempFileName() + ".png";
+            System.IO.File.WriteAllBytes(imagePath, imageBytes);
+            return imagePath;
         }
 
         private void NavigateToDetails(int id)
