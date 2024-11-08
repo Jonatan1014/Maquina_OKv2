@@ -9,6 +9,7 @@ namespace Maquina_OKv2.Controller
 {                                                   
     internal class Cerebro
     {
+        // Usuario
 
         UsuariosTableAdapter User = new UsuariosTableAdapter();
 
@@ -26,6 +27,15 @@ namespace Maquina_OKv2.Controller
             return result == 1;
 
         }
+
+        // Normas Tecnicas Colombianas
+
+        NormasTableAdapter NormasTableAdapter = new NormasTableAdapter();
+
+        //public string ListarNTC()
+        //{
+
+        //}
 
 
 

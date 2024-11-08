@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 
 namespace Maquina_OKv2.View
 {
@@ -18,17 +17,17 @@ namespace Maquina_OKv2.View
             _selectedNormaId = normaId;
             _parameterInputs = new Dictionary<int, TextBox>();
 
-            // Set the title of the norma
+            // Establecer el título de la norma
             txtNormaTitle.Text = $"Evaluación para la norma {normaTitle}";
 
-            // Load parameters for the selected norma
+            // Cargar los parámetros de la norma seleccionada
             LoadParameters();
         }
 
         private void LoadParameters()
         {
             // Conexión a la base de datos
-            string connectionString = "your_connection_string_here";
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Model\\maquina_bd.mdf;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();

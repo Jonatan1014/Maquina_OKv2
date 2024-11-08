@@ -26,7 +26,10 @@ namespace Maquina_OKv2.View
         public Login()
         {
             InitializeComponent();
-            Helper.FadeIn2(this); 
+            Helper.FadeIn2(this);
+            Main mai = new Main();
+            mai.Show();
+            Helper.FadeOutAndClose(this);
         }
 
         // Evento para mover la ventana

@@ -15,14 +15,10 @@
 
         <!-- ListBox con ejemplos de NTC -->
         <ListBox x:Name="ntcListBox" Margin="28,60,10,10" Foreground="White" Background="#3E3E52"
-                 SelectionChanged="ntcListBox_SelectionChanged">
-            <ListBoxItem Content="NTC 9001: Gestión de Calidad"/>
-            <ListBoxItem Content="NTC 1801: Seguridad en el Trabajo"/>
-            <ListBoxItem Content="NTC 1325: Protección Ambiental"/>
-            <ListBoxItem Content="NTC 2008: Requisitos de Seguridad"/>
-            <ListBoxItem Content="NTC 4101: Seguridad Eléctrica"/>
-            <ListBoxItem Content="NTC 17025: Requisitos de Laboratorio"/>
+         SelectionChanged="ntcListBox_SelectionChanged"
+         DisplayMemberPath="CodigoNorma">
         </ListBox>
+    
 
 
         <!-- Campo de búsqueda -->
@@ -40,7 +36,7 @@
 
 
         <!-- Contenedor para el UserControl de detalles de la norma seleccionada -->
-        <ContentControl x:Name="detailsContentControl" Grid.Column="1" Margin="10,80,158,81" Background="#3E3E52"/>
+        <ContentControl x:Name="detailsContentControl" Grid.Column="1" Margin="10,80,87,81" Background="#3E3E52"/>
 
     </Grid>
 </UserControl>

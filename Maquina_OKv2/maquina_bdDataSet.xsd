@@ -238,7 +238,17 @@ SELECT IdNorma, CodigoNorma, Descripcion FROM Normas WHERE (IdNorma = @IdNorma)<
               <Mapping SourceColumn="CodigoNorma" DataSetColumn="CodigoNorma" />
               <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="maquina_bdConnectionString (Settings)" DbObjectName="dbo.VistaNormas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM VistaNormas;
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ParametrosTableAdapter" GeneratorDataComponentClassName="ParametrosTableAdapter" Name="Parametros" UserDataComponentName="ParametrosTableAdapter">
             <MainSource>
@@ -528,7 +538,7 @@ SELECT IdUsuario, Nombre, Apellido, CorreoElectronico, Contrasena, Estado, Rol F
               <Mapping SourceColumn="Contrasena" DataSetColumn="Contrasena" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="maquina_bdConnectionString (Settings)" DbObjectName="[C:\USERS\FARUD\SOURCE\REPOS\MAQUINA_OKV2\MAQUINA_OKV2\MODEL\MAQUINA_BD.MDF].dbo.RegistrarUsuario" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="RegistrarUsuario" Modifier="Public" Name="RegistrarUsuario" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="RegistrarUsuario">
+              <DbSource ConnectionRef="maquina_bdConnectionString (Settings)" DbObjectName="[C:\USERS\FARUD\SOURCE\REPOS\MAQUINA_OKV2\MAQUINA_OKV2\MODEL\MAQUINA_BD.MDF].dbo.RegistrarUsuario" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="RegistrarUsuario" Modifier="Public" Name="RegistrarUsuario" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="RegistrarUsuario">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.RegistrarUsuario</CommandText>
@@ -748,21 +758,21 @@ WHERE  (IdUsuario = @Original_IdUsuario)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Estado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_UserColumnName="Estado" minOccurs="0">
+              <xs:element name="Estado" msprop:Generator_UserColumnName="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Rol" msprop:Generator_ColumnPropNameInRow="Rol" msprop:Generator_ColumnPropNameInTable="RolColumn" msprop:Generator_ColumnVarNameInTable="columnRol" msprop:Generator_UserColumnName="Rol" minOccurs="0">
+              <xs:element name="Rol" msprop:Generator_UserColumnName="Rol" msprop:Generator_ColumnPropNameInTable="RolColumn" msprop:Generator_ColumnPropNameInRow="Rol" msprop:Generator_ColumnVarNameInTable="columnRol" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Contrasena" msprop:Generator_ColumnPropNameInRow="Contrasena" msprop:Generator_ColumnPropNameInTable="ContrasenaColumn" msprop:Generator_ColumnVarNameInTable="columnContrasena" msprop:Generator_UserColumnName="Contrasena">
+              <xs:element name="Contrasena" msprop:Generator_UserColumnName="Contrasena" msprop:Generator_ColumnPropNameInTable="ContrasenaColumn" msprop:Generator_ColumnPropNameInRow="Contrasena" msprop:Generator_ColumnVarNameInTable="columnContrasena">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
@@ -809,14 +819,14 @@ WHERE  (IdUsuario = @Original_IdUsuario)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__Historial__IdPru__52593CB8" msdata:parent="Pruebas" msdata:child="HistorialPruebas" msdata:parentkey="IdPrueba" msdata:childkey="IdPrueba" msprop:Generator_UserParentTable="Pruebas" msprop:Generator_UserChildTable="HistorialPruebas" msprop:Generator_RelationVarName="relationFK__Historial__IdPru__52593CB8" msprop:Generator_ChildPropName="GetHistorialPruebasRows" msprop:Generator_UserRelationName="FK__Historial__IdPru__52593CB8" msprop:Generator_ParentPropName="PruebasRow" />
-      <msdata:Relationship name="FK__ImagenesP__IdPar__4CA06362" msdata:parent="Parametros" msdata:child="ImagenesParametros" msdata:parentkey="IdParametro" msdata:childkey="IdParametro" msprop:Generator_UserParentTable="Parametros" msprop:Generator_UserChildTable="ImagenesParametros" msprop:Generator_RelationVarName="relationFK__ImagenesP__IdPar__4CA06362" msprop:Generator_ChildPropName="GetImagenesParametrosRows" msprop:Generator_UserRelationName="FK__ImagenesP__IdPar__4CA06362" msprop:Generator_ParentPropName="ParametrosRow" />
-      <msdata:Relationship name="FK__Parametro__IdNor__3E52440B" msdata:parent="Normas" msdata:child="Parametros" msdata:parentkey="IdNorma" msdata:childkey="IdNorma" msprop:Generator_UserParentTable="Normas" msprop:Generator_UserChildTable="Parametros" msprop:Generator_RelationVarName="relationFK__Parametro__IdNor__3E52440B" msprop:Generator_ChildPropName="GetParametrosRows" msprop:Generator_ParentPropName="NormasRow" msprop:Generator_UserRelationName="FK__Parametro__IdNor__3E52440B" />
-      <msdata:Relationship name="FK__Pruebas__IdMaqui__4316F928" msdata:parent="Maquinas" msdata:child="Pruebas" msdata:parentkey="IdMaquina" msdata:childkey="IdMaquina" msprop:Generator_UserParentTable="Maquinas" msprop:Generator_UserChildTable="Pruebas" msprop:Generator_RelationVarName="relationFK__Pruebas__IdMaqui__4316F928" msprop:Generator_ChildPropName="GetPruebasRows" msprop:Generator_ParentPropName="MaquinasRow" msprop:Generator_UserRelationName="FK__Pruebas__IdMaqui__4316F928" />
-      <msdata:Relationship name="FK__Pruebas__IdNorma__440B1D61" msdata:parent="Normas" msdata:child="Pruebas" msdata:parentkey="IdNorma" msdata:childkey="IdNorma" msprop:Generator_UserParentTable="Normas" msprop:Generator_UserChildTable="Pruebas" msprop:Generator_RelationVarName="relationFK__Pruebas__IdNorma__440B1D61" msprop:Generator_ChildPropName="GetPruebasRows" msprop:Generator_ParentPropName="NormasRow" msprop:Generator_UserRelationName="FK__Pruebas__IdNorma__440B1D61" />
-      <msdata:Relationship name="FK__Pruebas__IdUsuar__44FF419A" msdata:parent="Usuarios" msdata:child="Pruebas" msdata:parentkey="IdUsuario" msdata:childkey="IdUsuario" msprop:Generator_UserParentTable="Usuarios" msprop:Generator_UserChildTable="Pruebas" msprop:Generator_RelationVarName="relationFK__Pruebas__IdUsuar__44FF419A" msprop:Generator_ChildPropName="GetPruebasRows" msprop:Generator_UserRelationName="FK__Pruebas__IdUsuar__44FF419A" msprop:Generator_ParentPropName="UsuariosRow" />
-      <msdata:Relationship name="FK__Resultado__IdPar__49C3F6B7" msdata:parent="Parametros" msdata:child="ResultadosPrueba" msdata:parentkey="IdParametro" msdata:childkey="IdParametro" msprop:Generator_UserParentTable="Parametros" msprop:Generator_UserChildTable="ResultadosPrueba" msprop:Generator_RelationVarName="relationFK__Resultado__IdPar__49C3F6B7" msprop:Generator_ChildPropName="GetResultadosPruebaRows" msprop:Generator_ParentPropName="ParametrosRow" msprop:Generator_UserRelationName="FK__Resultado__IdPar__49C3F6B7" />
-      <msdata:Relationship name="FK__Resultado__IdPru__48CFD27E" msdata:parent="Pruebas" msdata:child="ResultadosPrueba" msdata:parentkey="IdPrueba" msdata:childkey="IdPrueba" msprop:Generator_UserParentTable="Pruebas" msprop:Generator_UserChildTable="ResultadosPrueba" msprop:Generator_RelationVarName="relationFK__Resultado__IdPru__48CFD27E" msprop:Generator_ChildPropName="GetResultadosPruebaRows" msprop:Generator_ParentPropName="PruebasRow" msprop:Generator_UserRelationName="FK__Resultado__IdPru__48CFD27E" />
+      <msdata:Relationship name="FK__Historial__IdPru__52593CB8" msdata:parent="Pruebas" msdata:child="HistorialPruebas" msdata:parentkey="IdPrueba" msdata:childkey="IdPrueba" msprop:Generator_UserParentTable="Pruebas" msprop:Generator_UserChildTable="HistorialPruebas" msprop:Generator_RelationVarName="relationFK__Historial__IdPru__52593CB8" msprop:Generator_ChildPropName="GetHistorialPruebasRows" msprop:Generator_ParentPropName="PruebasRow" msprop:Generator_UserRelationName="FK__Historial__IdPru__52593CB8" />
+      <msdata:Relationship name="FK__ImagenesP__IdPar__4CA06362" msdata:parent="Parametros" msdata:child="ImagenesParametros" msdata:parentkey="IdParametro" msdata:childkey="IdParametro" msprop:Generator_UserParentTable="Parametros" msprop:Generator_UserChildTable="ImagenesParametros" msprop:Generator_RelationVarName="relationFK__ImagenesP__IdPar__4CA06362" msprop:Generator_ChildPropName="GetImagenesParametrosRows" msprop:Generator_ParentPropName="ParametrosRow" msprop:Generator_UserRelationName="FK__ImagenesP__IdPar__4CA06362" />
+      <msdata:Relationship name="FK__Parametro__IdNor__3E52440B" msdata:parent="Normas" msdata:child="Parametros" msdata:parentkey="IdNorma" msdata:childkey="IdNorma" msprop:Generator_UserParentTable="Normas" msprop:Generator_UserChildTable="Parametros" msprop:Generator_RelationVarName="relationFK__Parametro__IdNor__3E52440B" msprop:Generator_ChildPropName="GetParametrosRows" msprop:Generator_UserRelationName="FK__Parametro__IdNor__3E52440B" msprop:Generator_ParentPropName="NormasRow" />
+      <msdata:Relationship name="FK__Pruebas__IdMaqui__4316F928" msdata:parent="Maquinas" msdata:child="Pruebas" msdata:parentkey="IdMaquina" msdata:childkey="IdMaquina" msprop:Generator_UserParentTable="Maquinas" msprop:Generator_UserChildTable="Pruebas" msprop:Generator_RelationVarName="relationFK__Pruebas__IdMaqui__4316F928" msprop:Generator_ChildPropName="GetPruebasRows" msprop:Generator_UserRelationName="FK__Pruebas__IdMaqui__4316F928" msprop:Generator_ParentPropName="MaquinasRow" />
+      <msdata:Relationship name="FK__Pruebas__IdNorma__440B1D61" msdata:parent="Normas" msdata:child="Pruebas" msdata:parentkey="IdNorma" msdata:childkey="IdNorma" msprop:Generator_UserParentTable="Normas" msprop:Generator_UserChildTable="Pruebas" msprop:Generator_RelationVarName="relationFK__Pruebas__IdNorma__440B1D61" msprop:Generator_ChildPropName="GetPruebasRows" msprop:Generator_UserRelationName="FK__Pruebas__IdNorma__440B1D61" msprop:Generator_ParentPropName="NormasRow" />
+      <msdata:Relationship name="FK__Pruebas__IdUsuar__44FF419A" msdata:parent="Usuarios" msdata:child="Pruebas" msdata:parentkey="IdUsuario" msdata:childkey="IdUsuario" msprop:Generator_UserParentTable="Usuarios" msprop:Generator_UserChildTable="Pruebas" msprop:Generator_RelationVarName="relationFK__Pruebas__IdUsuar__44FF419A" msprop:Generator_ChildPropName="GetPruebasRows" msprop:Generator_ParentPropName="UsuariosRow" msprop:Generator_UserRelationName="FK__Pruebas__IdUsuar__44FF419A" />
+      <msdata:Relationship name="FK__Resultado__IdPar__49C3F6B7" msdata:parent="Parametros" msdata:child="ResultadosPrueba" msdata:parentkey="IdParametro" msdata:childkey="IdParametro" msprop:Generator_UserParentTable="Parametros" msprop:Generator_UserChildTable="ResultadosPrueba" msprop:Generator_RelationVarName="relationFK__Resultado__IdPar__49C3F6B7" msprop:Generator_ChildPropName="GetResultadosPruebaRows" msprop:Generator_UserRelationName="FK__Resultado__IdPar__49C3F6B7" msprop:Generator_ParentPropName="ParametrosRow" />
+      <msdata:Relationship name="FK__Resultado__IdPru__48CFD27E" msdata:parent="Pruebas" msdata:child="ResultadosPrueba" msdata:parentkey="IdPrueba" msdata:childkey="IdPrueba" msprop:Generator_UserParentTable="Pruebas" msprop:Generator_UserChildTable="ResultadosPrueba" msprop:Generator_RelationVarName="relationFK__Resultado__IdPru__48CFD27E" msprop:Generator_ChildPropName="GetResultadosPruebaRows" msprop:Generator_UserRelationName="FK__Resultado__IdPru__48CFD27E" msprop:Generator_ParentPropName="PruebasRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
