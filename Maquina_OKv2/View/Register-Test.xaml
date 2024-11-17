@@ -5,7 +5,7 @@
         WindowState="Maximized"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Background="#1E1E2E" Height="497" Width="750">
+        Background="#1E1E2E">
 
     <Window.Resources>
         <!-- Estilos para TextBox y Button -->
@@ -23,10 +23,15 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <!-- Texto negro -->
+            <Setter Property="Background" Value="LightGray"/>
+            <!-- Fondo claro -->
             <Setter Property="Padding" Value="10"/>
             <Setter Property="FontFamily" Value="Montserrat"/>
             <Setter Property="FontSize" Value="16"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <!-- Centrado vertical -->
         </Style>
 
         <Style TargetType="Button">
@@ -76,15 +81,14 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+
+            <!-- Título de la norma -->
             <TextBlock x:Name="txtNormaTitle" 
-           FontSize="20" 
-           FontWeight="Bold" 
-           Foreground="White" 
-           HorizontalAlignment="Center"
-           Margin="0,10,0,10"/>
-
-
-
+                       FontSize="20" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center"
+                       Margin="0,10,0,10"/>
 
             <!-- Contenedor de parámetros dinámicos con imágenes y campos de entrada -->
             <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10,0,10,51" Grid.Row="1" Grid.RowSpan="2">
