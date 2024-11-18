@@ -75,7 +75,7 @@
         </StackPanel>
 
         <!-- Contenedor principal centrado -->
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,35,0,0" Width="608">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,35,0,0" Width="800">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -92,7 +92,7 @@
 
             <!-- Contenedor de parámetros dinámicos con imágenes y campos de entrada -->
             <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10,0,10,51" Grid.Row="1" Grid.RowSpan="2">
-                <StackPanel x:Name="parametersPanel" Width="486"/>
+                <StackPanel x:Name="parametersPanel" Width="700"/>
             </ScrollViewer>
 
             <!-- Botón para guardar los resultados -->

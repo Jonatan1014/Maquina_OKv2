@@ -58,12 +58,21 @@ namespace Maquina_OKv2.View
         private void CreateParameterControl(int parametroId, string nombreParametro, decimal limiteInferior, decimal limiteSuperior, string unidad, byte[] imageBytes)
         {
             // Crear un Grid para el diseño
-            Grid parameterGrid = new Grid { Margin = new Thickness(0, 10, 0, 10) };
-            parameterGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            Grid parameterGrid = new Grid
+            {
+                Margin = new Thickness(0, 10, 0, 10)
+            };
             parameterGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
+            parameterGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(3, GridUnitType.Star) });
 
             // Mostrar la imagen si existe
-            Image parameterImage = new Image { Width = 100, Height = 100, Margin = new Thickness(5) };
+            Image parameterImage = new Image
+            {
+                Margin = new Thickness(10),
+                Stretch = Stretch.Uniform, // Asegura que la imagen no se recorte y mantenga proporciones
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
+            };
             if (imageBytes != null)
             {
                 using (var ms = new System.IO.MemoryStream(imageBytes))
@@ -79,41 +88,46 @@ namespace Maquina_OKv2.View
             parameterGrid.Children.Add(parameterImage);
             Grid.SetColumn(parameterImage, 0);
 
-            // Crear un contenedor para el texto y entrada
-            StackPanel inputStack = new StackPanel();
+            // Crear un StackPanel para centrar el texto y el TextBox horizontalmente
+            StackPanel inputStack = new StackPanel
+            {
+                Margin = new Thickness(10),
+                HorizontalAlignment = HorizontalAlignment.Center // Centra el contenido del StackPanel
+            };
+
+            // Etiqueta del parámetro
             TextBlock parameterLabel = new TextBlock
             {
-                Text = $"{nombreParametro} ({limiteInferior} - {limiteSuperior} {unidad})",
+                //({limiteInferior} - {limiteSuperior} {unidad})
+                Text = $"{nombreParametro} ({unidad})", 
                 FontSize = 14,
-                Foreground = System.Windows.Media.Brushes.White
+                Foreground = Brushes.White,
+                TextWrapping = TextWrapping.Wrap,
+                HorizontalAlignment = HorizontalAlignment.Center, // Centrar horizontalmente
+                Margin = new Thickness(0, 0, 0, 5) // Espacio inferior
             };
             inputStack.Children.Add(parameterLabel);
 
+            // Campo de entrada
             TextBox parameterInput = new TextBox
             {
-                Width = 237, // Ancho del TextBox
+                Width = 300, // Ancho del TextBox
                 Height = 40, // Altura del TextBox
-                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF3E3E52")), // Color de fondo
-                Foreground = Brushes.White, // Color del texto
-                BorderBrush = Brushes.White, // Color del borde
+                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF3E3E52")), // Fondo
+                Foreground = Brushes.White, // Texto
+                BorderBrush = Brushes.White, // Borde
                 BorderThickness = new Thickness(0, 0, 0, 1), // Solo borde inferior
                 FontFamily = new FontFamily("Montserrat Medium"), // Fuente personalizada
                 FontSize = 14, // Tamaño de la fuente
                 VerticalContentAlignment = VerticalAlignment.Center, // Centrar texto verticalmente
                 HorizontalContentAlignment = HorizontalAlignment.Left, // Alinear texto horizontalmente
-                Padding = new Thickness(5, 0, 5, 0), // Margen interno para que el texto no se recorte
-                IsEnabled = true // Habilitado para entrada de texto
+                Padding = new Thickness(5, 0, 5, 0), // Espaciado interno
+                IsEnabled = true // Habilitado para entrada
             };
 
-
-
-
-
-            // Asignar eventos para validar entrada
             parameterInput.PreviewTextInput += ParameterInput_PreviewTextInput;
-            parameterInput.TextChanged += ParameterInput_TextChanged;
-
             inputStack.Children.Add(parameterInput);
+
             parameterGrid.Children.Add(inputStack);
             Grid.SetColumn(inputStack, 1);
 

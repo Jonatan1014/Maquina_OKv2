@@ -1,8 +1,8 @@
-﻿-- -- Crear base de datos
+﻿--  Crear base de datos
 -- CREATE DATABASE ControlCalibracion;
 -- GO
 
--- -- Usar la base de datos creada
+-- Usar la base de datos creada
 -- USE ControlCalibracion;
 -- GO
 
@@ -15,7 +15,7 @@ CREATE TABLE Usuarios (
     Rol VARCHAR(10) CHECK (Rol IN ('User', 'Admin')),
     CorreoElectronico VARCHAR(100) UNIQUE NOT NULL,
     Contrasena VARCHAR(255) NOT NULL
-);--        
+);        
 GO
 
 -- Tabla Normas
@@ -96,9 +96,10 @@ GO
 
 
 -- Insertar usuarios
-INSERT INTO Usuarios (Nombre, Apellido, CorreoElectronico, Contrasena) 
-VALUES ('Juan', 'Perez', 'juan@gmail.com', '123'),
-       ('Maria', 'Gomez', 'maria@gmail.com', '123');
+INSERT INTO Usuarios (Nombre, Apellido, Estado, Rol, CorreoElectronico, Contrasena) 
+VALUES ('Juan', 'Perez','Inactivo','User' ,'juan@gmail.com', '123'),
+       ('Maria', 'Gomez','Inactivo','User', 'maria@gmail.com', '123'),
+       ('Jonatan', 'Cantillo','Activo','Admin', 'a', 'a');
 
 -- Insertar normas
 INSERT INTO Normas (CodigoNorma, Descripcion) 
